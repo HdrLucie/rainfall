@@ -7,19 +7,20 @@
 int main(int argc,char **argv)
 {
 	int n;
-	char *str;
+	char *args[2];
 	uid_t euid;
 	gid_t egid;
 
 	n = atoi(argv[1]);
 	if (n == 423)
 	{
-		str = strdup("/bin/sh");
+		args[0] = strdup("/bin/sh");
+		args[1] = NULL;
 		egid = getegid();
 		euid = geteuid();
 		setresgid(egid,egid,egid);
 		setresuid(euid,euid,euid);
-		execv("/bin/sh",&str);
+		execv("/bin/sh",args);
 	}
 	else
 	{
