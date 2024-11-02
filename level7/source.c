@@ -1,3 +1,5 @@
+char c[69];
+
 void m(void)
 {
   time_t tVar1;
