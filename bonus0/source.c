@@ -4,7 +4,7 @@
 
 void	p(char *str, char *sep) {
 	char			*end;
-	char			buffer[4104];
+	char			buffer[4120];
 
 	puts(sep);
 	read(0, buffer, 4096);
@@ -14,21 +14,16 @@ void	p(char *str, char *sep) {
 }
 
 void pp(char *buffer) {
-	char			var1;
-	unsigned int	var2;
-	char			var3;
-	char			var4;
+	unsigned int	len;
 	char			buffer1[20];
 	char			buffer2[20];
-
-	var4 = 0;
 
 	p(buffer1, " - ");
 	p(buffer2, " - ");
 	strcpy(buffer, buffer1);
-	var2 = strlen(buffer);
-	buffer[var2] = ' ';
-	buffer[var2 + 1] =  '\0';
+	len = strlen(buffer);
+	buffer[len] = ' ';
+	buffer[len + 1] =  '\0';
 	strcat(buffer, buffer2);
 
 	return ;
