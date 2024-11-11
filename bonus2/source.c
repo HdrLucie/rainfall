@@ -4,7 +4,7 @@
 
 int language_choice = 0;
 
-void greetuser(char *name) {
+int greetuser(char *name) {
     char greeting[72];
 
     if (language_choice == 1)
@@ -15,7 +15,7 @@ void greetuser(char *name) {
         strcpy(greeting, "Hello ");
 
     strcat(greeting, name);
-    puts(greeting);
+    return (puts(greeting));
 }
 
 int main(int argc, char **argv) {
@@ -43,7 +43,6 @@ int main(int argc, char **argv) {
 
     char stack_buffer[76];
     memcpy(stack_buffer, buffer, 19 * sizeof(int));
-    greetuser(stack_buffer);
 
-    return 0;
+    return (greetuser(stack_buffer));
 }
