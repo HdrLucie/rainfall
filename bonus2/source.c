@@ -2,14 +2,14 @@
 #include <string.h>
 #include <stdlib.h>
 
-int language_choice = 0;
+int language = 0;
 
 int greetuser(char *name) {
     char greeting[72];
 
-    if (language_choice == 1)
+    if (language == 1)
         strcpy(greeting, "Hyvää päivää ");
-    else if (language_choice == 2)
+    else if (language == 2)
         strcpy(greeting, "Goedemiddag! ");
     else
         strcpy(greeting, "Hello ");
@@ -34,10 +34,10 @@ int main(int argc, char **argv) {
     env_lang = getenv("LANG");
     if (env_lang != NULL) {
         if (memcmp(env_lang, "fi", 2) == 0) {
-            language_choice = 1;
+            language = 1;
         }
         else if (memcmp(env_lang, "nl", 2) == 0) {
-            language_choice = 2;
+            language = 2;
         }
     }
 
