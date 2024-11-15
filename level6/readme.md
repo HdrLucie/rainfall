@@ -8,7 +8,7 @@ There are 2 functions other than `main`:
 
 `main` has two calls to `malloc`, the first one to allocate a buffer, and the second one to store a pointer. It then stores the address of `m` in the second one before calling `strcpy` to copy the first argument into the buffer.
 
-The attack will take advantage of the fact that the memory segments returned by `malloc` are adjacent. Just like a heap buffer overflow, we need to find how many bytes we need to overwrite to write over the address.
+The attack will take advantage of the fact that the memory segments returned by `malloc` are adjacent. Just like a stack buffer overflow, we need to find how many bytes we need to overwrite to write over the address.
 
 We can do it by setting breakpoints after each `malloc` call and displaying the value in `$eax`:
 ```gdb
